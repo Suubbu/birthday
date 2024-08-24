@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Vandana!</title>
 
     <!-- External Libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.3/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/snowfall@1.0.0/snowfall.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bubbles.js@1.1.0/dist/bubbles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
-            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            background: linear-gradient(135deg, #101010 0%, #262526 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
             font-family: 'Arial', sans-serif;
             color: #fff;
             text-align: center;
             position: relative;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0% 0%;
+            }
         }
 
         .container {
@@ -27,96 +49,39 @@
             z-index: 2;
             max-width: 90%;
             margin: auto;
+            padding-top: 50px;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-bottom: 20px;
+            text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 2.5em;
             color: #ff9a9e;
-            text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-            animation: animate__animated animate__fadeInDown;
         }
 
-        h2 {
+        h2,
+        h3,
+        p {
             font-size: 1.8em;
-            margin-bottom: 20px;
             color: #fad0c4;
-            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            animation: animate__animated animate__fadeInUp animate__delay-1s;
-        }
-
-        h3 {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            color: #ffecd2;
-            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            animation: animate__animated animate__fadeInLeft animate__delay-2s;
         }
 
         p {
             font-size: 1.2em;
             color: #ffdde1;
-            margin-top: 15px;
-            animation: animate__animated animate__fadeInRight animate__delay-3s;
         }
 
         .heart {
             font-size: 4em;
             color: #ff758c;
             animation: animate__animated animate__heartBeat animate__infinite;
-            margin-bottom: 20px;
-        }
-
-        .balloons {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            animation: moveUp 4s infinite;
-        }
-
-        .balloon {
-            width: 30px;
-            height: 50px;
-            border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
-            position: relative;
-            background-color: #ff9a9e;
-            animation: float 4s infinite ease-in-out;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-        }
-
-        .balloon:nth-child(2) { background-color: #fad0c4; }
-        .balloon:nth-child(3) { background-color: #fbc2eb; }
-        .balloon:nth-child(4) { background-color: #ffecd2; }
-        .balloon:nth-child(5) { background-color: #a18cd1; }
-
-        .balloon:before {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 15px;
-            background-color: #fff;
-        }
-
-        .balloon:after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 15px;
-            height: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            border-top: none;
-            border-right: none;
-            transform: rotate(-45deg);
+            margin-bottom: 30px;
         }
 
         #particles-js {
@@ -126,39 +91,58 @@
             background: transparent;
             z-index: 1;
         }
-
-        @keyframes moveUp {
-            0% { bottom: 0; }
-            100% { bottom: 100%; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
     </style>
 </head>
+
 <body>
     <div id="particles-js"></div>
 
     <div class="container">
-        <h1>Happy Birthday Vandana!</h1>
+        <h1 id="animated-title">Happy Birthday Vandana!</h1>
         <h2>May your day be filled with joy and love!</h2>
-        <h3>Wishing you all the happiness in the world!</h3>
-        <p>You are the light of my life, and I’m so grateful to have you by my side. Here's to a year full of new adventures and beautiful moments!</p>
+        <p>We’ve already completed four incredible years of our journey together, creating countless memories and
+            growing closer with every passing day. It’s truly amazing that, despite never having met in person, our love
+            has only deepened. Here’s to celebrating our unique and beautiful long-distance relationship, and to many
+            more adventures and cherished moments ahead!</p>
+
         <div class="heart">❤️</div>
-        <div class="balloons">
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-        </div>
     </div>
 
-    <!-- Particles.js Configuration -->
+    <!-- GSAP Animation -->
     <script>
+        // GSAP text color animation
+        gsap.to("#animated-title", {
+            duration: 4,
+            color: ["#ff9a9e", "#fad0c4", "#fbc2eb", "#ffecd2", "#a18cd1"],
+            repeat: -1,
+            yoyo: true
+        });
+
+        // Confetti effect
+        document.addEventListener("DOMContentLoaded", function () {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        });
+
+        // Snowfall effect
+        document.addEventListener("DOMContentLoaded", function () {
+            Snowfall.init();
+        });
+
+        // Bubble effect
+        document.addEventListener("DOMContentLoaded", function () {
+            Bubbles.init({
+                quantity: 30,
+                size: [20, 50],
+                speed: [1, 4],
+                color: ['#ff9a9e', '#fad0c4', '#fbc2eb', '#ffecd2', '#a18cd1']
+            });
+        });
+
+        // Particles.js Configuration
         particlesJS('particles-js', {
             "particles": {
                 "number": {
@@ -176,13 +160,10 @@
                     "stroke": {
                         "width": 0,
                         "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
                     }
                 },
                 "opacity": {
-                    "value": 0.5,
+                    "value": 0.6,
                     "random": false,
                     "anim": {
                         "enable": false,
@@ -192,7 +173,7 @@
                     }
                 },
                 "size": {
-                    "value": 3,
+                    "value": 4,
                     "random": true,
                     "anim": {
                         "enable": false,
@@ -210,7 +191,7 @@
                 },
                 "move": {
                     "enable": true,
-                    "speed": 6,
+                    "speed": 3,
                     "direction": "none",
                     "random": false,
                     "straight": false,
@@ -266,4 +247,5 @@
         });
     </script>
 </body>
+
 </html>
