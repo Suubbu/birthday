@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Vandana!</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FAD0C4 0%, #FFD1FF 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            animation: fadeIn 2s ease-in-out;
+            max-width: 90%;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            color: #FF6F61;
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            animation: bounceIn 2s ease-in-out infinite alternate;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInOut 4s ease-in-out infinite;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #4CAF50;
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            animation: zoomInOut 4s ease-in-out infinite;
+        }
+
+        .heart {
+            font-size: 4em;
+            color: #E91E63;
+            animation: heartbeat 1.5s infinite;
+            margin-bottom: 20px;
+        }
+
+        .balloons {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            animation: moveUp 4s infinite;
+        }
+
+        .balloon {
+            width: 30px;
+            height: 50px;
+            border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+            background-color: #FF6F61;
+            position: relative;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .balloon::before,
+        .balloon::after {
+            content: '';
+            position: absolute;
+            background-color: #FF6F61;
+        }
+
+        .balloon::before {
+            width: 8px;
+            height: 15px;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+
+        .balloon::after {
+            width: 2px;
+            height: 20px;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            animation: twinkle 4s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomInOut {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes moveUp {
+            0% {
+                bottom: 0;
+            }
+
+            100% {
+                bottom: 100%;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        .stars .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            animation: starTwinkle 2s infinite;
+        }
+
+        @keyframes starTwinkle {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Add more stars */
+        .stars .star:nth-child(1) {
+            top: 10%;
+            left: 20%;
+        }
+
+        .stars .star:nth-child(2) {
+            top: 25%;
+            left: 50%;
+        }
+
+        .stars .star:nth-child(3) {
+            top: 40%;
+            left: 70%;
+        }
+
+        .stars .star:nth-child(4) {
+            top: 55%;
+            left: 30%;
+        }
+
+        .stars .star:nth-child(5) {
+            top: 70%;
+            left: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+    <div class="container">
+        <h1>Happy Birthday Vandana!</h1>
+        <h2>May your day be filled with joy and all your dreams come true 🌟</h2>
+        <h3>You light up my life, today and every day ❤️</h3>
+        <div class="heart">💖</div>
+    </div>
+    <div class="balloons">
+        <div class="balloon" style="background-color: #FF6347;"></div>
+        <div class="balloon" style="background-color: #FFA07A;"></div>
+        <div class="balloon" style="background-color: #20B2AA;"></div>
+        <div class="balloon" style="background-color: #87CEEB;"></div>
+        <div class="balloon" style="background-color: #6A5ACD;"></div>
+    </div>
+</body>
+
+</html>
